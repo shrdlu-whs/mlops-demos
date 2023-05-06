@@ -2,8 +2,6 @@ import os
 # %%
 import torch
 from tokenizers import Tokenizer
-from transformers import DistilBertTokenizer
-
 # %%
 MODEL_VERSION = "1"
 MODEL_PATH_EMOTION = "./saved-models/distilbert-emotion/" + MODEL_VERSION
