@@ -93,18 +93,18 @@ class SentimentPrediction(Resource):
 # Returns max. predicted emotion and confidence for a given query text
 class EmotionPrediction(Resource):
     def get(self):
-        # Use parser and find the user's query
+        # Use parser and find the users' query
         args = parser.parse_args()
         user_query = args['query']
         input_data = encode_input(user_query)
-        # predict emotion
+        # Predict emotion
         emotion_prediction = predict(input_data, emotion_model)[0]
         emotion_idx = torch.argmax(emotion_prediction)
         emotion_prediction = emotion_prediction.detach().cpu().numpy()
         emotion = emotion_labels[emotion_idx]
         confidence = float(round(emotion_prediction[emotion_idx],4))
 
-        # create JSON object
+        # Create JSON object
         output = {"emotion": emotion, "confidence": confidence}
         return output
 
@@ -114,7 +114,7 @@ class EmotionPrediction(Resource):
 class Models(Resource):
     def get(self):
 
-        # create JSON object
+        # Create JSON object with model description
         output = {"models":[{"model":"Sentiment Model","description":"Classifier detecting positive or negative overall sentiment of a text. "},{"model":"Emotion Model","description":"Classifier detecting the most likely emotion conveyed by a text."}]}
         
         return output
