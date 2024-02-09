@@ -58,7 +58,7 @@ def predict(input_data, model):
 #%%
 # Load model for text classification by emotion:
 # sadness, joy, fear, anger, surprise
-emotion_model = load_model(MODEL_PATH_EMOTION)
+# emotion_model = load_model(MODEL_PATH_EMOTION)
 # Load model for text classification by broad sentiment only:
 # positive/negative
 sentiment_model = load_model(MODEL_PATH_SENTIMENT)
@@ -91,7 +91,7 @@ class SentimentPrediction(Resource):
         return output
 # %%
 # Returns max. predicted emotion and confidence for a given query text
-class EmotionPrediction(Resource):
+""" class EmotionPrediction(Resource):
     def get(self):
         # Use parser and find the users' query
         args = parser.parse_args()
@@ -106,7 +106,7 @@ class EmotionPrediction(Resource):
 
         # Create JSON object
         output = {"emotion": emotion, "confidence": confidence}
-        return output
+        return output """
 
 #%%
 # %%
@@ -124,7 +124,7 @@ class Models(Resource):
 # Route the URL to the resource
 api.add_resource(Models, '/models')
 api.add_resource(SentimentPrediction, '/models/sentiment')
-api.add_resource(EmotionPrediction, '/models/emotion')
+# api.add_resource(EmotionPrediction, '/models/emotion')
 
 
 if __name__ == '__main__':

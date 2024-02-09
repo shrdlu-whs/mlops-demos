@@ -1,5 +1,6 @@
 # VSCode
 .history
+
 # Environments
 .env
 .venv
@@ -10,3 +11,33 @@ env.bak/
 venv.bak/
 **/saved-models
 tf-serving-example
+
+# Ignore sensitive files
+*.pem
+*.key
+*.pub
+
+### Terraform ###
+# Local .terraform directories
+**/.terraform/*
+
+# Ignore variables files
+*.auto.tfvars
+
+# Ignore override files
+*.tfoverride
+
+# Ignore environment-specific files
+.envrc
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log

@@ -4,3 +4,5 @@ Dockerfile
 .dockerignore
 venv
 save-models.py
+terraform
+saved-models/distilbert-emotion
